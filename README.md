@@ -154,7 +154,7 @@ MedIntel's AI-driven systems streamline both the digitization of handwritten med
 
 [demo4.webm](https://github.com/user-attachments/assets/1807ba22-c734-4c9a-b386-f8ec870e8d61)
 
-Demo videos also available in the resource directory.
+Demo videos also available in the assets directory.
 
 ### Conclusion
 
