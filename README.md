@@ -35,8 +35,8 @@ To install and set up the MedIntel system on your local environment, follow thes
 
 ### Clone the Repository
 ```
-git clone https://github.com/yourusername/medical-ai-webapp.git
-cd medical-ai-webapp
+git clone https://github.com/Dhruvanshu-Joshi/MedIntel.git
+cd MedIntel
 ```
 
 ### Prerequisites
@@ -87,7 +87,7 @@ The handwritten text recognition (HTR) pipeline processes scanned handwritten do
 
 - The merged boxes are processed using the TrOCR model, which employs a Transformer-based architecture for both image understanding and wordpiece-level text generation. Unlike traditional OCR systems that utilize Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs), TrOCR leverages pretrained image and text Transformers for efficient text recognition. The model processes images resized to 384x384 pixels, splitting them into 16x16 patches. The text recognition task is framed as an encoder-decoder problem, achieving state-of-the-art performance on printed, handwritten, and scene text recognition tasks without requiring complex pre/post-processing steps.
 
-![trocr](assets/trocrmodel.png)
+![trocr](assets/trocrmodel.jpg)
 
 #### **EasyOCR Integration**:
 
@@ -126,7 +126,7 @@ Automatically generate the **Impression** section of chest X-ray reports using d
   - **Attention Mechanism**: Focuses on relevant regions in the X-ray, enhancing the model’s ability to interpret medical abnormalities.
   - **Decoder**: Converts the extracted visual features into coherent medical impressions.
 
-![alt text](chest1.png)
+![alt text](assets/chest1.png)
 
 ---
 
@@ -146,7 +146,13 @@ MedIntel's AI-driven systems streamline both the digitization of handwritten med
 
 ## Demo
 
-[demo.webm]()
+[demo1.webm](https://github.com/user-attachments/assets/7b312ae1-a93f-4b9d-b35c-e64aaa5ea992)
+
+[demo2.webm](https://github.com/user-attachments/assets/f0c6e1a9-ab36-4d99-bea4-9bf3ac5f5853)
+
+[demo3.webm](https://github.com/user-attachments/assets/5ca7c051-6714-427c-b665-e364ed2697fc)
+
+[demo4.webm](https://github.com/user-attachments/assets/1807ba22-c734-4c9a-b386-f8ec870e8d61)
 
 Demo videos also available in the resource directory.
 
