@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('upload') }}">Upload Document</a></li>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <header>
+            <h1>Your Uploaded Documents</h1>
+            <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+        </header>
+        
+        <div class="container">
+            <ul>
+                {% for document in documents %}
+                    <li>
+                        <strong>{{ document.filename }}</strong><br>
+                        <img src="{{ url_for('static', filename='images/' + document.processed_image) }}" alt="Processed Image" width="200"><br>
+                        <textarea readonly rows="4">{{ document.extracted_text }}</textarea>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

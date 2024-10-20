@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Printed Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>HEALTHCARE</h1>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('handwritten') }}" id="handwritten">Handwritten Prescription</a></li>
+                <li><a href="{{ url_for('printed') }}" id="printed">Printed Prescription</a></li>
+                <li><a href="#report" id="report">Report</a></li>
+                <li class="user-profile"><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header>
+            <h1>Upload Printed Prescription Image</h1>
+            <p>Select a scanned image of a printed prescription to analyze.</p>
+        </header>
+
+        <section>
+            <form action="{{ url_for('upload_printed') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <br>
+                <button type="submit" class="button">Upload and Extract Text</button>
+            </form>
+
+            {% if processed_image %}
+            <section class="result">
+                <h2>Collage of Original and Processed Images</h2>
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/' + processed_image) }}" alt="Collage Image" class="collage-image">
+                </div>
+
+                <h2>Editable Text Output</h2>
+                <form action="{{ url_for('save_text') }}" method="POST">
+                    <textarea name="corrected_text" rows="10" style="width: 100%;">{{ extracted_text }}</textarea>
+                    <br>
+                    <button type="submit" class="button">Save Corrected Text</button>
+                </form>
+            </section>
+            {% endif %}
+        </section>
+
+        <footer>
+            <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+        </footer>
+    </div>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printed Prescription Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Printed Prescription</h2>
+        {% if processed_image %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/' + processed_image) }}" class="collage-image" alt="Processed Image">
+            </div>
+            <div class="text-output">
+                <h3>Extracted Text:</h3>
+                <textarea rows="10" cols="50">{{ extracted_text }}</textarea>
+            </div>
+        {% else %}
+            <form action="{{ url_for('upload_printed') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*">
+                <button type="submit" class="button">Upload and Process</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html> -->

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-ray Report Generation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>HEALTHCARE</h1>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('handwritten') }}" id="handwritten">Handwritten Prescription</a></li>
+                <li><a href="{{ url_for('printed') }}" id="printed">Printed Prescription</a></li>
+                <li><a href="{{ url_for('report') }}" id="report">Report</a></li>
+                <li class="user-profile"><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header>
+            <h1>X-ray Report Generation</h1>
+            <p>Upload X-ray images and get a comprehensive report generated quickly and accurately.</p>
+        </header>
+        <section>
+            <h2>How it Works</h2>
+            <p>Upload an X-ray image, and our system will analyze and provide a detailed report based on the image.</p>
+            <a href="{{ url_for('upload_xray') }}" class="button">Generate X-ray Report</a>
+        </section>
+    </div>
+
+</body>
+</html>

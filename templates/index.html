@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>HEALTHCARE</h1>
+        </div>
+        <nav>
+            <ul class="menu">
+                <!-- Link to Handwritten Prescription Analysis -->
+                <li><a href="{{ url_for('handwritten') }}" id="handwritten">Handwritten Prescription</a></li>
+
+                <!-- Link to Printed Prescription Analysis -->
+                <li><a href="{{ url_for('printed') }}" id="printed">Printed Prescription</a></li>
+
+                <!-- Link to Report Section -->
+                <li><a href="{{ url_for('report') }}" id="report">Report</a></li>
+
+                <!-- Link to User Profile Section -->
+                <li class="user-profile"><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="intro">
+            <!-- Add a GIF here -->
+            <img src="{{ url_for('static', filename='images/GIF.gif') }}" alt="Healthcare Animation" class="intro-gif">
+            <h2>Welcome to our Healthcare Platform</h2>
+            <p>Providing the best tools for medical professionals to manage and issue prescriptions, reports, and more.</p>
+            <p>Choose an option from the menu to get started.</p>
+        </section>
+
+        <!-- Placeholder for Dynamic Content -->
+        <section id="content" class="content-area">
+            <!-- Content will be loaded here dynamically -->
+        </section>
+    </div>
+
+</body>
+</html>

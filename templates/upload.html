@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Handwritten Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+     
+    <header class="navbar">
+        <div class="logo">
+            <h1>HEALTHCARE</h1>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('handwritten') }}" id="handwritten">Handwritten Prescription</a></li>
+                <li><a href="#printed-prescription" id="printed">Printed Prescription</a></li>
+                <li><a href="#report" id="report">Report</a></li>
+                <li class="user-profile"><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header>
+            <h1>Upload Handwritten Image</h1>
+            <p>Select a scanned image of handwritten medical text to analyze.</p>
+        </header>
+        
+        <section>
+            <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <br>
+                <button type="submit" class="button">Upload and Extract Text</button>
+            </form>
+
+            {% if processed_image %}
+            <section class="result">
+                <h2>Collage of Original and Processed Images</h2>
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/' + processed_image) }}" alt="Collage Image" class="collage-image">
+                </div>
+                
+                <h2>Editable Text Output</h2>
+                <form action="{{ url_for('save_text') }}" method="POST">
+                    <textarea name="corrected_text" rows="10" style="width: 100%;">{{ extracted_text }}</textarea>
+                    <br>
+                    <button type="submit" class="button">Save Corrected Text</button>
+                </form>
+            </section>
+            {% endif %}
+        </section>
+
+        <footer>
+            <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+        </footer>
+    </div>
+</body>
+</html>

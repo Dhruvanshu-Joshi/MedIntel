@@ -1,0 +1,14 @@
+editdistance
+opencv-python
+tensorflow
+numpy
+matplotlib
+onnxruntime
+path
+scikit-learn
+pytesseract
+Flask
+Pillow
+pandas
+nltk
+keras-preprocessing

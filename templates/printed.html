@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printed Prescription Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>HEALTHCARE</h1>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('handwritten') }}" id="handwritten">Handwritten Prescription</a></li>
+                <li><a href="{{ url_for('printed') }}" id="printed">Printed Prescription</a></li>
+                <li><a href="#report" id="report">Report</a></li>
+                <li class="user-profile"><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header>
+            <h1>Printed Prescription Analysis</h1>
+            <p>Analyze printed prescriptions quickly and accurately.</p>
+        </header>
+        <section>
+            <h2>How it Works</h2>
+            <p>Upload a scanned image of a printed prescription, and our system will extract and display the text for further analysis.</p>
+            <a href="{{ url_for('upload_printed') }}" class="button">Analyze Printed Text</a>
+        </section>
+    </div>
+
+</body>
+</html>
